@@ -18,3 +18,9 @@ members = [
 st.write("Members:")
 for member in members:
     st.markdown(f"* {member}")
+
+st.markdown("## **`Dataset Description`**")
+
+# Read a comma-separated values (csv) file into DataFrame
+df = pd.read_csv("datasets/laptop_price - dataset.csv")
+st.write(df)
