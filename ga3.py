@@ -83,3 +83,56 @@ st.write(df['GPU_Type'].value_counts())
 # Categorical Data: OpSys
 st.write("**Operating System count sorted in descending order**")
 st.write(df['OpSys'].value_counts())
+
+
+
+# Analyzing the Average Costs of Laptop Prices by Company: Boston
+st.markdown("### **`Analyzing the Average Costs of Laptop Prices by Company: Boston`**")
+
+# Let us visualize the average costs of laptop prices (Euro) by company
+
+# For each 'Company' the average of the 'Price (Euro)' column is calculated
+avg_price_by_company = df.groupby('Company')['Price (Euro)'].mean().reset_index() # 'reset_index()' reverts it into a standard DataFrame
+st.write("##### Let us visualize the average costs of laptop prices (Euro) by company")
+avg_price_by_company['Price (Euro)'] = avg_price_by_company['Price (Euro)'].round(2) # Setting the significant figure to 2 decimal places
+st.dataframe(avg_price_by_company)
+
+# After visualizing the average costs of laptop prices (Euro) by company,
+
+# We can arrange the DataFrame by the average price in descending order
+avg_price_by_company = avg_price_by_company.sort_values(by='Price (Euro)', ascending=False)
+st.write("##### We can arrange the DataFrame by the average price in descending order")
+st.dataframe(avg_price_by_company)
+st.write("We can observe here which company manufactures cheap and expensive laptops based on the average prices.")
+
+# Now we can use a bar chart to visualize the grouped and ordered DataFrame (the average costs of laptop prices (Euro) by company)
+
+def avg_price_by_company(): # not necessary but good practice for reusablility
+
+    avg_price_by_company = df.groupby('Company')['Price (Euro)'].mean().reset_index()
+    avg_price_by_company = avg_price_by_company.sort_values(by='Price (Euro)', ascending=False)
+
+    # Let us create a bar chart
+    plt.figure(figsize=(12, 6)) # define the width and height of the chart in inches
+    plt.bar(avg_price_by_company['Company'], avg_price_by_company['Price (Euro)'], color='#009BAA')
+
+    # Labels
+    plt.title('Average Laptop Price by Manufacturer')
+    plt.xlabel('Company')
+    plt.ylabel('Price (Euro)')
+    plt.xticks(rotation=45) # Rotate x labels for better visibility
+    plt.grid(axis='y', color='#E55640') # Show horizontal grid lines to easily read corresponding prices
+
+    st.pyplot(plt)
+    plt.clf()
+
+avg_price_by_company() # call the function
+
+st.write("""
+
+Based from the bar chart, we can observe that the average laptop prices differ from various companies of the dataset. 
+Notably, ***Razer*** has an average price of **3346.142857**. It also records a maximum price of **6099.00** 💸 
+(*see Numerical Data Description*). On the contrary, ***Vero*** which is at the bottom of the list has an average price of only **217.425000** 👌. 
+The mean or average price is **1134.969059** and based from this figure we could identify which companies tend to manufacture premium and affordable laptops 💻.
+
+""")
