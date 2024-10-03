@@ -21,6 +21,9 @@ for member in members:
     st.markdown(f"* {member}")
 
 st.markdown("## **`Dataset Description`**")
+st.markdown("**Dataset:** Titanic Dataset (Kaggle)")
+st.markdown("https://www.kaggle.com/datasets/ironwolf404/laptop-price-dataset/code")
+
 
 # Read a comma-separated values (csv) file into DataFrame
 df = pd.read_csv("datasets/laptop_price - dataset.csv")
