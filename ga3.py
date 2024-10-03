@@ -33,5 +33,8 @@ buffer = StringIO()
 df.info(buf=buffer)
 df_info_as_string = buffer.getvalue()
 
-st.write("Display information about our DataFrame including the index dtype and columns, non-null values and memory usage")
+st.write("**Display information about our DataFrame including the index dtype and columns, non-null values and memory usage**")
 st.text(df_info_as_string)
+
+st.write("**Show missing values or sum of null values per column**")
+st.write(df.isna().sum())
