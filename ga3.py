@@ -29,6 +29,7 @@ st.markdown("https://www.kaggle.com/datasets/ironwolf404/laptop-price-dataset/co
 df = pd.read_csv("datasets/laptop_price - dataset.csv")
 st.write(df)
 
+# Prints information about our DataFrame including the index dtype and columns, non-null values and memory usage.
 buffer = StringIO()
 df.info(buf=buffer)
 df_info_as_string = buffer.getvalue()
@@ -36,5 +37,10 @@ df_info_as_string = buffer.getvalue()
 st.write("**Display information about our DataFrame including the index dtype and columns, non-null values and memory usage**")
 st.text(df_info_as_string)
 
+# Detect missing values or sum of null values per column
 st.write("**Show missing values or sum of null values per column**")
 st.write(df.isna().sum())
+
+# Generate statistical metrics excluding non-numeric columns
+st.markdown("## **`Numerical Data Description`**")
+st.write(df.describe())
