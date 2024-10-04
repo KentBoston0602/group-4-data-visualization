@@ -174,7 +174,45 @@ Lastly, **ARM**, which is considerably rare, constitutes only **0.1%** 📉 of t
 
 """)
 
+# Distribution of Laptop Prices by Using Histogram: Zamora 
+st.markdown("### **`Distribution of Laptop Prices by Using Histogram: Zamora`**")
 
+plt.hist(df['Price (Euro)'], bins=10, color='green', alpha=0.7, edgecolor = 'black')
+plt.title('Distribution of Laptop Prices')
+plt.xlabel('Price (Euro)')
+plt.ylabel('Number of Laptops')
+st.pyplot(plt)
+plt.clf()
+
+st.write("""
+
+The histograms display the quantity of available laptops in a specific price level. Most of the laptops that are currently manufactured in 
+various regions globally can be classified as cost ranging betweeen 500 Euros and 1500 Euros. The laptops in the 1500 to 2500 euros price 
+range are even fewer and there are very few laptops that cost more than 2500 euros. This implies that, though there are many quantities of 
+interest in cheaper laptops, there are fewer quantities of interest in costly laptops.
+
+""")
+
+# Ram vs Price of Laptops by Using Scatter Plot: Zamora 
+st.markdown("### **`Ram vs Price of Laptops by Using Scatter Plot: Zamora`**")
+
+plt.scatter(df['RAM (GB)'], df['Price (Euro)'], edgecolor='black')
+plt.title('RAM vs Price of Laptops')
+plt.xlabel('RAM (GB)')
+plt.ylabel('Price (Euro)')
+st.pyplot(plt)
+plt.clf()
+
+st.write("""
+
+In general, the price of the laptop tends to go high when the RAM is high. This suggest that the two variables 
+are positively related. This is a really interesting thing: laptops with equal amounts of RAM can cost a lot of 
+money. This implies that RAM is not the only determinant of the price of a computer. It is also likely that other 
+characteristics such as the processor, type of storage, graphic card, brand, and display probably contribute to it. 
+There is a laptop that has 64 GB RAM which is actually cheaper than some laptops which have a much lower RAM. This 
+could be an anomaly, a record that is quite different from the other records and could be followed up on.
+
+""")
 
 # Conclusion section
 st.markdown("## **`Conclusion`**")
@@ -195,4 +233,19 @@ st.write("""
     - **_Nvidia_**'s GPU is also integrated into a significant portion (**31.1%**) of laptops from the dataset.
     - **_AMD_** is the third popular choice of GPU manufacturer (**13.6%**) integrated into laptops from the dataset.
     - **_ARM_** has a notably small share (**0.1%**), indicating that this GPU manufacturer is not a preferred option among the laptops.
+""")
+
+# 3. Distribution of Laptop Prices
+st.markdown("#### 3. **Distribution of Laptop Prices** 💻")
+st.write("""
+    - The histogram below shows the prices for the laptops. They indicate that the majority of laptops are in the price segment of 500 to 1500 Euros.
+    - The best way to illustrate the variability in the distribution is to show that as the price increases the number of laptops sold reduces and therefore we have a positively skewed distribution. From this we can deduce that there are a few costly laptops, however, a majority of them fall under the low-end category.
+""")
+
+# 4. RAM vs Price of Laptops
+st.markdown("#### 4. **RAM vs Price of Laptops** 🎫")
+st.write("""
+    - The paper further establishes that there is a positive correlation between RAM and price of laptops but it is not as simple.
+    - Specifically other attributes like the processor, storage type, graphics card, brand and screen quality also influence the laptop prices.
+    - Hence, while buying a laptop, one has to look at the whole set of parameters and characteristics to get the maximum of benefits for the given price/amount of money, not just RAM.	 
 """)
