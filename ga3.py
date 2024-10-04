@@ -193,6 +193,27 @@ interest in cheaper laptops, there are fewer quantities of interest in costly la
 
 """)
 
+# Ram vs Price of Laptops by Using Scatter Plot: Zamora 
+st.markdown("### **`Ram vs Price of Laptops by Using Scatter Plot: Zamora`**")
+
+plt.scatter(df['RAM (GB)'], df['Price (Euro)'], edgecolor='black')
+plt.title('RAM vs Price of Laptops')
+plt.xlabel('RAM (GB)')
+plt.ylabel('Price (Euro)')
+st.pyplot(plt)
+plt.clf()
+
+st.write("""
+
+In general, the price of the laptop tends to go high when the RAM is high. This suggest that the two variables 
+are positively related. This is a really interesting thing: laptops with equal amounts of RAM can cost a lot of 
+money. This implies that RAM is not the only determinant of the price of a computer. It is also likely that other 
+characteristics such as the processor, type of storage, graphic card, brand, and display probably contribute to it. 
+There is a laptop that has 64 GB RAM which is actually cheaper than some laptops which have a much lower RAM. This 
+could be an anomaly, a record that is quite different from the other records and could be followed up on.
+
+""")
+
 # Conclusion section
 st.markdown("## **`Conclusion`**")
 st.markdown("### **Insights from our Data Visualization and Data Analysis: 📊**")
