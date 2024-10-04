@@ -254,6 +254,34 @@ According to the "Average CPU Frequency Analysis by Laptop Type" chart, laptops 
 
 """)
 
+# Distribution of CPU Manufacturers: Fidelino 
+st.markdown("### **`Distribution of CPU Manufacturers: Fidelino`**")
+
+st.write(df['CPU_Company'].value_counts())
+
+def cpu_count():
+
+    cpu_count = df['CPU_Company'].value_counts()
+
+    #bar chart and its corresponding labels
+
+    plt.figure(figsize = (6, 6)) # define the width and height of the chart
+    colors = ['#0175a4', '#01af82', '#f3bc01']
+
+    # Labels should correspond to its right proportion of the pie chart
+    plt.pie(cpu_count, labels = ['Intel', 'AMD', 'Samsung'], autopct ='%1.1f%%', startangle = 0, colors=colors, explode=(0.1, 0.1, 0.1)) # separate the slices for better visibility
+    plt.title('Distribution of CPU Brands')
+
+    st.pyplot(plt)
+    plt.clf()
+
+cpu_count() # call the function
+
+st.write("""
+
+The market share for various CPU brands used in laptop manufacture is shown in the pie chart "Distribution of CPU Brands". **95.2%** of laptops made have Intel CPUs, which is a huge domination in the chart. This suggests that Intel is the clear market leader for laptop CPUs. AMD CPUs, on the other hand, are found in **4.7%** of laptops, which is a considerably smaller yet noticeable presence. Lastly, compared to AMD and Intel, Samsung CPUs have a very small market share of **0.1%**, indicating their restricted usage in laptops. This distribution highlights Intel's dominant market share and the very small share of other CPU manufacturers in the laptop market, such as AMD and Samsung.
+
+""")
 
 # Conclusion section
 st.markdown("## **`Conclusion`**")
