@@ -308,6 +308,32 @@ This is why variations from the typical pattern seen within the central group of
 
 """)
 
+# Average Laptop Price by GPU Company: Conda
+st.markdown("### **`Average Laptop Price by GPU Company: Conda`**")
+
+# Calculate the average price for each GPU Company
+avg_price_by_GPUcompany = df.groupby('GPU_Company')['Price (Euro)'].mean().reset_index()
+
+# We can arrange the DataFrame by the average price in descending order
+avg_price_by_GPUcompany = avg_price_by_GPUcompany.sort_values(by='Price (Euro)', ascending=False)
+
+# Create a bar plot for Average Cost by GPU Company
+plt.figure(figsize=(12, 6))
+sns.barplot(x='Price (Euro)', y='GPU_Company', data=avg_price_by_GPUcompany, palette='viridis', hue='GPU_Company', legend=False)
+plt.title('Average Laptop Price by GPU_Company')
+plt.xlabel('Average Price (Euro)')
+plt.ylabel('GPU Company')
+plt.grid(axis='x', color='#BA8E23')
+
+st.pyplot(plt)
+plt.clf()
+
+st.write("""
+
+As it was expected, laptops equipped with Nvidia GPUs are the most expensive; their average price is a little bit over 1500 Euros. Currently, laptops with Intel GPUs are a little over 1000 Euros, AMD GPUs are between 800 Euros, ARM GPUs are about 600 Euros.
+
+""")
+
 # Conclusion section
 st.markdown("## **`Conclusion`**")
 st.markdown("### **Insights from our Data Visualization and Data Analysis: 📊**")
