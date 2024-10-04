@@ -384,3 +384,18 @@ st.write("""
     - 4.7 percent of laptops have **AMD** CPUs. This still constitutes a sizeable portion of the market, even though it is far smaller than Intel's share. Given Intel's dominance, AMD's presence indicates a significant with less market importance.
     - **Samsung** CPUs only account for 0.1% of the market. This poor presence indicates that Samsung is not a major participant in this area and emphasizes their low penetration into the laptop CPU market.	 
 """)
+
+# 7. Average Costs of Laptop Prices by Screen Size
+st.markdown("#### 7. **Average Costs of Laptop Prices by Screen Size** 📏")
+st.write("""
+    - This analysis will be especially helpful for a consumer willing to buy a laptop as it gives more or less a rough idea about the laptops screen size vs laptops price. Furthermore, this information can be freely utilised by manufacturers and retailers with an aim of setting up their prices and products.
+""")
+
+# 8. Average Laptop Price by GPU Company
+st.markdown("#### 8. **Average Laptop Price by GPU Company** 💰")
+st.write("""
+    - ***Nvidia*** has the highest average price, approximately exceeding 1400 Euros, reflecting their position and dominance in the market, as well as their product's high performance which is often gaming-focused or sometimes used for professional-grade machines.
+    - ***Intel*** 's GPU follow an average price around 1000 Euros, Intel is another notable brand that is currently second to Nvidia that offers a balance between cost and capability to users that's commonly found in gaming laptops.
+    - ***AMD*** GPUs, on the other hand, has an average price of approximately slightly below 800 Euros. AMD's products are usually bought buy users that are conscious with their budget and at the same time has a desire of a decent graphics performance.
+    - Lastly, ***ARM*** GPUs have the lowest average price in the market with slightly over 600 Euros, which is considered cheap in the market. ARM is usually used in lightweight or specialized devices that is efficiency-focused, instead of performance and quality.	 
+""")
