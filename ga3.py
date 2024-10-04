@@ -214,6 +214,75 @@ could be an anomaly, a record that is quite different from the other records and
 
 """)
 
+# Average CPU Frequency Analysis by Laptop Type: Fidelino 
+st.markdown("### **`Average CPU Frequency Analysis by Laptop Type: Fidelino`**")
+
+def avg_GHz_by_type(): # not necessary but good practice for reusablility
+
+    avg_GHz_by_type = df.groupby('TypeName')['CPU_Frequency (GHz)'].mean().reset_index()
+    avg_GHz_by_type = avg_GHz_by_type.sort_values(by='CPU_Frequency (GHz)', ascending=True)
+
+    # Let us create a bar chart
+    plt.figure(figsize=(12, 6)) # define the width and height of the chart in inches
+    plt.bar(avg_GHz_by_type['TypeName'], avg_GHz_by_type['CPU_Frequency (GHz)'], color='#BAD8EB')
+
+    # Labels
+    plt.title('Average CPU Frequency (GHz) by Laptop Type')
+    plt.xlabel('TypeName')
+    plt.ylabel('CPU_Frequency (GHz)')
+    plt.grid(axis='y', color='#feaab9') # Show horizontal grid lines to easily read corresponding prices
+
+    st.pyplot(plt)
+    plt.clf()
+
+avg_GHz_by_type() # call the function
+
+# Calculate the average CPU Frequency for each TypeName
+average_cpu_frequency = df.groupby('TypeName')['CPU_Frequency (GHz)'].mean().reset_index()
+
+# Rename the columns for clarity
+average_cpu_frequency.columns = ['TypeName', 'Average_CPU_Frequency (GHz)']
+
+# Sort the DataFrame by Average_CPU_Frequency in descending order
+average_cpu_frequency = average_cpu_frequency.sort_values(by='Average_CPU_Frequency (GHz)', ascending=False).reset_index(drop=True)
+
+# Print the result without index numbering
+st.dataframe(average_cpu_frequency)
+st.write("""
+
+According to the "Average CPU Frequency Analysis by Laptop Type" chart, laptops that are designed for workstations have the highest CPU frequency with **2.75 GHz** which is essential for complex data processing, high-performance computing, software development and compilation, etc. Gaming laptops, with an average CPU frequency of **2.72 GHz** requires a high performance CPU due to the increasingly high processing demand of PC games. Ultrabook follows with an average of **2.3 GHz**, offering a blend of performance and portability that is ideal for users who need a powerful yet lightweight device. Furthermore, Notebooks has an average CPU frequency of **2.21 GHz** which is perfect for a user that prioritizes efficiency and mobility. The 2 in 1 Convertible, on the other hand, has an average of **2.12 GHz** which offers flexibility and are designed to users that wants a device that can serve as both a laptop and a tablet. Lastly, with an average CPU frequency of **1.68 GHz** the Netbook is designed for basic computing tasks and is suitable for users that prioritizes portability in devices.
+
+""")
+
+# Distribution of CPU Manufacturers: Fidelino 
+st.markdown("### **`Distribution of CPU Manufacturers: Fidelino`**")
+
+st.write(df['CPU_Company'].value_counts())
+
+def cpu_count():
+
+    cpu_count = df['CPU_Company'].value_counts()
+
+    #bar chart and its corresponding labels
+
+    plt.figure(figsize = (6, 6)) # define the width and height of the chart
+    colors = ['#0175a4', '#01af82', '#f3bc01']
+
+    # Labels should correspond to its right proportion of the pie chart
+    plt.pie(cpu_count, labels = ['Intel', 'AMD', 'Samsung'], autopct ='%1.1f%%', startangle = 0, colors=colors, explode=(0.1, 0.1, 0.1)) # separate the slices for better visibility
+    plt.title('Distribution of CPU Brands')
+
+    st.pyplot(plt)
+    plt.clf()
+
+cpu_count() # call the function
+
+st.write("""
+
+The market share for various CPU brands used in laptop manufacture is shown in the pie chart "Distribution of CPU Brands". **95.2%** of laptops made have Intel CPUs, which is a huge domination in the chart. This suggests that Intel is the clear market leader for laptop CPUs. AMD CPUs, on the other hand, are found in **4.7%** of laptops, which is a considerably smaller yet noticeable presence. Lastly, compared to AMD and Intel, Samsung CPUs have a very small market share of **0.1%**, indicating their restricted usage in laptops. This distribution highlights Intel's dominant market share and the very small share of other CPU manufacturers in the laptop market, such as AMD and Samsung.
+
+""")
+
 # Conclusion section
 st.markdown("## **`Conclusion`**")
 st.markdown("### **Insights from our Data Visualization and Data Analysis: 📊**")
@@ -248,4 +317,19 @@ st.write("""
     - The paper further establishes that there is a positive correlation between RAM and price of laptops but it is not as simple.
     - Specifically other attributes like the processor, storage type, graphics card, brand and screen quality also influence the laptop prices.
     - Hence, while buying a laptop, one has to look at the whole set of parameters and characteristics to get the maximum of benefits for the given price/amount of money, not just RAM.	 
+""")
+
+# 5. Average CPU Frequency Analysis by Laptop Type
+st.markdown("#### 5. **Average CPU Frequency Analysis by Laptop Type** 📡")
+st.write("""
+    - CPU Frequencies are often designed and calibrated based on the type and function of the laptop. The purpose of having a specific range of CPU frequencies is to support the supposed task of each laptop types with the highest possible performance and efficiency.
+    - Tasks vary and therefore when efficiency and performance is being negatively affected, despite having the correct type of laptop or device, users are able to modify the device's electronic circuit's timing settings to run at a lower or higher clock rate than is specified, which is called underclocking and overclocking.
+""")
+
+# 6. Distribution of CPU Manufacturers
+st.markdown("#### 6. **Distribution of CPU Manufacturers** 📟")
+st.write("""
+    - **Intel** accounts for majority of the CPU used by laptop manufacturers which clearly indicates their current dominance in that market.
+    - 4.7 percent of laptops have **AMD** CPUs. This still constitutes a sizeable portion of the market, even though it is far smaller than Intel's share. Given Intel's dominance, AMD's presence indicates a significant with less market importance.
+    - **Samsung** CPUs only account for 0.1% of the market. This poor presence indicates that Samsung is not a major participant in this area and emphasizes their low penetration into the laptop CPU market.	 
 """)
