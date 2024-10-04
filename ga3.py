@@ -21,7 +21,7 @@ for member in members:
     st.markdown(f"* {member}")
 
 st.markdown("## **`Dataset Description`**")
-st.markdown("**Dataset:** Titanic Dataset (Kaggle)")
+st.markdown("**Dataset:** Laptop Price Dataset by Iron Wolf (Kaggle)")
 st.markdown("https://www.kaggle.com/datasets/ironwolf404/laptop-price-dataset/code")
 
 
