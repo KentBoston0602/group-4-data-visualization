@@ -318,3 +318,18 @@ st.write("""
     - Specifically other attributes like the processor, storage type, graphics card, brand and screen quality also influence the laptop prices.
     - Hence, while buying a laptop, one has to look at the whole set of parameters and characteristics to get the maximum of benefits for the given price/amount of money, not just RAM.	 
 """)
+
+# 5. Average CPU Frequency Analysis by Laptop Type
+st.markdown("#### 5. **Average CPU Frequency Analysis by Laptop Type** 📡")
+st.write("""
+    - CPU Frequencies are often designed and calibrated based on the type and function of the laptop. The purpose of having a specific range of CPU frequencies is to support the supposed task of each laptop types with the highest possible performance and efficiency.
+    - Tasks vary and therefore when efficiency and performance is being negatively affected, despite having the correct type of laptop or device, users are able to modify the device's electronic circuit's timing settings to run at a lower or higher clock rate than is specified, which is called underclocking and overclocking.
+""")
+
+# 6. Distribution of CPU Manufacturers
+st.markdown("#### 6. **Distribution of CPU Manufacturers** 📟")
+st.write("""
+    - **Intel** accounts for majority of the CPU used by laptop manufacturers which clearly indicates their current dominance in that market.
+    - 4.7 percent of laptops have **AMD** CPUs. This still constitutes a sizeable portion of the market, even though it is far smaller than Intel's share. Given Intel's dominance, AMD's presence indicates a significant with less market importance.
+    - **Samsung** CPUs only account for 0.1% of the market. This poor presence indicates that Samsung is not a major participant in this area and emphasizes their low penetration into the laptop CPU market.	 
+""")
