@@ -136,3 +136,40 @@ Notably, ***Razer*** has an average price of **3346.142857**. It also records a 
 The mean or average price is **1134.969059** and based from this figure we could identify which companies tend to manufacture premium and affordable laptops 💻.
 
 """)
+
+
+
+# Distribution of Laptop GPU Manufacturers: Boston
+st.markdown("### **`Analyzing the Average Costs of Laptop Prices by Company: Boston`**")
+
+# Let us visualize again the frequency of each GPU manufacturer or company that constitutes our dataset.
+st.write("##### Let us visualize again the frequency of each GPU manufacturer or company that constitutes our dataset.")
+st.write(df['GPU_Company'].value_counts())
+
+# A pie chart will show the distribution or proportion of each GPU manufacturer/company from the dataset
+
+def gpu_count(): # not necessary but good practice for reusablility
+
+    gpu_count = df['GPU_Company'].value_counts()
+
+    # Let us create a bar chart and its corresponding labels
+
+    plt.figure(figsize = (6, 6)) # define the width and height of the chart
+    colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'] # define colors using hex value
+
+    # Labels should correspond to its right proportion of the pie chart
+    plt.pie(gpu_count, labels = ['Intel', 'Nvidia', 'AMD', 'ARM'], autopct ='%1.1f%%', startangle = 90, colors=colors)
+    plt.title('Proportion of Laptop GPU Manufacturers')
+
+    st.pyplot(plt)
+    plt.clf()
+
+gpu_count() # call the function
+
+st.write("""
+
+Based from the pie chart, we can observe that ***Intel*** constitutes **55.2%** 📈 or half the proportion of GPU manufacturers from the dataset. 
+***Nvidia*** has a **31.1%** share which is also a popular choice. A small but notable portion comes from ***AMD*** with a share of **13.6%**. 
+Lastly, **ARM**, which is considerably rare, constitutes only **0.1%** 📉 of the total distribution of GPU 💽 manufacturers from the dataset.
+
+""")
