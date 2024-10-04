@@ -214,6 +214,47 @@ could be an anomaly, a record that is quite different from the other records and
 
 """)
 
+# Average CPU Frequency Analysis by Laptop Type: Fidelino 
+st.markdown("### **`Average CPU Frequency Analysis by Laptop Type: Fidelino`**")
+
+def avg_GHz_by_type(): # not necessary but good practice for reusablility
+
+    avg_GHz_by_type = df.groupby('TypeName')['CPU_Frequency (GHz)'].mean().reset_index()
+    avg_GHz_by_type = avg_GHz_by_type.sort_values(by='CPU_Frequency (GHz)', ascending=True)
+
+    # Let us create a bar chart
+    plt.figure(figsize=(12, 6)) # define the width and height of the chart in inches
+    plt.bar(avg_GHz_by_type['TypeName'], avg_GHz_by_type['CPU_Frequency (GHz)'], color='#BAD8EB')
+
+    # Labels
+    plt.title('Average CPU Frequency (GHz) by Laptop Type')
+    plt.xlabel('TypeName')
+    plt.ylabel('CPU_Frequency (GHz)')
+    plt.grid(axis='y', color='#feaab9') # Show horizontal grid lines to easily read corresponding prices
+
+    st.pyplot(plt)
+    plt.clf()
+
+avg_GHz_by_type() # call the function
+
+# Calculate the average CPU Frequency for each TypeName
+average_cpu_frequency = df.groupby('TypeName')['CPU_Frequency (GHz)'].mean().reset_index()
+
+# Rename the columns for clarity
+average_cpu_frequency.columns = ['TypeName', 'Average_CPU_Frequency (GHz)']
+
+# Sort the DataFrame by Average_CPU_Frequency in descending order
+average_cpu_frequency = average_cpu_frequency.sort_values(by='Average_CPU_Frequency (GHz)', ascending=False).reset_index(drop=True)
+
+# Print the result without index numbering
+st.dataframe(average_cpu_frequency)
+st.write("""
+
+According to the "Average CPU Frequency Analysis by Laptop Type" chart, laptops that are designed for workstations have the highest CPU frequency with **2.75 GHz** which is essential for complex data processing, high-performance computing, software development and compilation, etc. Gaming laptops, with an average CPU frequency of **2.72 GHz** requires a high performance CPU due to the increasingly high processing demand of PC games. Ultrabook follows with an average of **2.3 GHz**, offering a blend of performance and portability that is ideal for users who need a powerful yet lightweight device. Furthermore, Notebooks has an average CPU frequency of **2.21 GHz** which is perfect for a user that prioritizes efficiency and mobility. The 2 in 1 Convertible, on the other hand, has an average of **2.12 GHz** which offers flexibility and are designed to users that wants a device that can serve as both a laptop and a tablet. Lastly, with an average CPU frequency of **1.68 GHz** the Netbook is designed for basic computing tasks and is suitable for users that prioritizes portability in devices.
+
+""")
+
+
 # Conclusion section
 st.markdown("## **`Conclusion`**")
 st.markdown("### **Insights from our Data Visualization and Data Analysis: 📊**")
