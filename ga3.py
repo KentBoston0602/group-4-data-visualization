@@ -234,3 +234,18 @@ st.write("""
     - **_AMD_** is the third popular choice of GPU manufacturer (**13.6%**) integrated into laptops from the dataset.
     - **_ARM_** has a notably small share (**0.1%**), indicating that this GPU manufacturer is not a preferred option among the laptops.
 """)
+
+# 3. Distribution of Laptop Prices
+st.markdown("#### 3. **Distribution of Laptop Prices** 💻")
+st.write("""
+    - The histogram below shows the prices for the laptops. They indicate that the majority of laptops are in the price segment of 500 to 1500 Euros.
+    - The best way to illustrate the variability in the distribution is to show that as the price increases the number of laptops sold reduces and therefore we have a positively skewed distribution. From this we can deduce that there are a few costly laptops, however, a majority of them fall under the low-end category.
+""")
+
+# 4. RAM vs Price of Laptops
+st.markdown("#### 4. **RAM vs Price of Laptops** 🎫")
+st.write("""
+    - The paper further establishes that there is a positive correlation between RAM and price of laptops but it is not as simple.
+    - Specifically other attributes like the processor, storage type, graphics card, brand and screen quality also influence the laptop prices.
+    - Hence, while buying a laptop, one has to look at the whole set of parameters and characteristics to get the maximum of benefits for the given price/amount of money, not just RAM.	 
+""")
