@@ -173,3 +173,26 @@ Based from the pie chart, we can observe that ***Intel*** constitutes **55.2%** 
 Lastly, **ARM**, which is considerably rare, constitutes only **0.1%** 📉 of the total distribution of GPU 💽 manufacturers from the dataset.
 
 """)
+
+
+
+# Conclusion section
+st.markdown("## **`Conclusion`**")
+st.markdown("### **Insights from our Data Visualization and Data Analysis: 📊**")
+
+# 1. Average Costs of Laptop Prices by Company
+st.markdown("#### 1. **Average Costs of Laptop Prices by Company** 💲")
+st.write("""
+    - Price variation across manufacturers indicate that some companies like **_Razer, LG, and MSI_** are inclined to market on premium laptops with high-end specifications, 
+    while companies such as **_Vero, Mediacom, and Chuwi_** with considerably low average prices are budget-friendly (lower performance and build quality).
+    - Companies from **_Huawei_** to **_HP_** relative to the chart have a broader market, offering both premium and budget-friendly laptops.
+""")
+
+# 2. Distribution of Laptop GPU Manufacturers
+st.markdown("#### 2. **Distribution of Laptop GPU Manufacturers** 💽")
+st.write("""
+    - The laptops from the dataset are mostly integrated with **_Intel_**'s GPU, constituting more than half (**55.2%**) of the distribution.
+    - **_Nvidia_**'s GPU is also integrated into a significant portion (**31.1%**) of laptops from the dataset.
+    - **_AMD_** is the third popular choice of GPU manufacturer (**13.6%**) integrated into laptops from the dataset.
+    - **_ARM_** has a notably small share (**0.1%**), indicating that this GPU manufacturer is not a preferred option among the laptops.
+""")
