@@ -174,7 +174,24 @@ Lastly, **ARM**, which is considerably rare, constitutes only **0.1%** 📉 of t
 
 """)
 
+# Distribution of Laptop Prices by Using Histogram: Zamora 
+st.markdown("### **`Distribution of Laptop Prices by Using Histogram: Zamora`**")
 
+plt.hist(df['Price (Euro)'], bins=10, color='green', alpha=0.7, edgecolor = 'black')
+plt.title('Distribution of Laptop Prices')
+plt.xlabel('Price (Euro)')
+plt.ylabel('Number of Laptops')
+st.pyplot(plt)
+plt.clf()
+
+st.write("""
+
+The histograms display the quantity of available laptops in a specific price level. Most of the laptops that are currently manufactured in 
+various regions globally can be classified as cost ranging betweeen 500 Euros and 1500 Euros. The laptops in the 1500 to 2500 euros price 
+range are even fewer and there are very few laptops that cost more than 2500 euros. This implies that, though there are many quantities of 
+interest in cheaper laptops, there are fewer quantities of interest in costly laptops.
+
+""")
 
 # Conclusion section
 st.markdown("## **`Conclusion`**")
