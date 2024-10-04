@@ -4,4 +4,3 @@ numpy
 pandas
 seaborn
 plotly
-from io import StringIO

@@ -283,6 +283,31 @@ The market share for various CPU brands used in laptop manufacture is shown in t
 
 """)
 
+# Average Costs of Laptop Prices by Screen Size: Conda
+st.markdown("### **`Average Costs of Laptop Prices by Screen Size: Conda`**")
+
+# Calculate the average price by screen size (inches)
+avg_price_by_screen_size = df.groupby('Inches')['Price (Euro)'].mean().reset_index()
+plt.figure(figsize=(12, 6))
+plt.scatter(avg_price_by_screen_size['Inches'], avg_price_by_screen_size['Price (Euro)'], color='red', s=100, edgecolor='black') # s=100 sets the size of the points for better visibility
+
+# Add labels and title
+plt.xlabel('Screen Size (Inches)')
+plt.ylabel('Average Price (Euro)')
+plt.title('Average Laptop Price by Screen Size')
+plt.grid(True)
+
+st.pyplot(plt)
+plt.clf()
+
+st.write("""
+
+There is not a 100% direct relationship, but over arching, it can be inferred that the larger the screen size, the higher the average laptop price.
+
+This is why variations from the typical pattern seen within the central group of data points can also appear in other factors, such as laptop brands, features, and more.
+
+""")
+
 # Conclusion section
 st.markdown("## **`Conclusion`**")
 st.markdown("### **Insights from our Data Visualization and Data Analysis: 📊**")
