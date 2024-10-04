@@ -283,6 +283,57 @@ The market share for various CPU brands used in laptop manufacture is shown in t
 
 """)
 
+# Average Costs of Laptop Prices by Screen Size: Conda
+st.markdown("### **`Average Costs of Laptop Prices by Screen Size: Conda`**")
+
+# Calculate the average price by screen size (inches)
+avg_price_by_screen_size = df.groupby('Inches')['Price (Euro)'].mean().reset_index()
+plt.figure(figsize=(12, 6))
+plt.scatter(avg_price_by_screen_size['Inches'], avg_price_by_screen_size['Price (Euro)'], color='red', s=100, edgecolor='black') # s=100 sets the size of the points for better visibility
+
+# Add labels and title
+plt.xlabel('Screen Size (Inches)')
+plt.ylabel('Average Price (Euro)')
+plt.title('Average Laptop Price by Screen Size')
+plt.grid(True)
+
+st.pyplot(plt)
+plt.clf()
+
+st.write("""
+
+There is not a 100% direct relationship, but over arching, it can be inferred that the larger the screen size, the higher the average laptop price.
+
+This is why variations from the typical pattern seen within the central group of data points can also appear in other factors, such as laptop brands, features, and more.
+
+""")
+
+# Average Laptop Price by GPU Company: Conda
+st.markdown("### **`Average Laptop Price by GPU Company: Conda`**")
+
+# Calculate the average price for each GPU Company
+avg_price_by_GPUcompany = df.groupby('GPU_Company')['Price (Euro)'].mean().reset_index()
+
+# We can arrange the DataFrame by the average price in descending order
+avg_price_by_GPUcompany = avg_price_by_GPUcompany.sort_values(by='Price (Euro)', ascending=False)
+
+# Create a bar plot for Average Cost by GPU Company
+plt.figure(figsize=(12, 6))
+sns.barplot(x='Price (Euro)', y='GPU_Company', data=avg_price_by_GPUcompany, palette='viridis', hue='GPU_Company', legend=False)
+plt.title('Average Laptop Price by GPU_Company')
+plt.xlabel('Average Price (Euro)')
+plt.ylabel('GPU Company')
+plt.grid(axis='x', color='#BA8E23')
+
+st.pyplot(plt)
+plt.clf()
+
+st.write("""
+
+As it was expected, laptops equipped with Nvidia GPUs are the most expensive; their average price is a little bit over 1500 Euros. Currently, laptops with Intel GPUs are a little over 1000 Euros, AMD GPUs are between 800 Euros, ARM GPUs are about 600 Euros.
+
+""")
+
 # Conclusion section
 st.markdown("## **`Conclusion`**")
 st.markdown("### **Insights from our Data Visualization and Data Analysis: 📊**")
@@ -332,4 +383,19 @@ st.write("""
     - **Intel** accounts for majority of the CPU used by laptop manufacturers which clearly indicates their current dominance in that market.
     - 4.7 percent of laptops have **AMD** CPUs. This still constitutes a sizeable portion of the market, even though it is far smaller than Intel's share. Given Intel's dominance, AMD's presence indicates a significant with less market importance.
     - **Samsung** CPUs only account for 0.1% of the market. This poor presence indicates that Samsung is not a major participant in this area and emphasizes their low penetration into the laptop CPU market.	 
+""")
+
+# 7. Average Costs of Laptop Prices by Screen Size
+st.markdown("#### 7. **Average Costs of Laptop Prices by Screen Size** 📏")
+st.write("""
+    - This analysis will be especially helpful for a consumer willing to buy a laptop as it gives more or less a rough idea about the laptops screen size vs laptops price. Furthermore, this information can be freely utilised by manufacturers and retailers with an aim of setting up their prices and products.
+""")
+
+# 8. Average Laptop Price by GPU Company
+st.markdown("#### 8. **Average Laptop Price by GPU Company** 💰")
+st.write("""
+    - ***Nvidia*** has the highest average price, approximately exceeding 1400 Euros, reflecting their position and dominance in the market, as well as their product's high performance which is often gaming-focused or sometimes used for professional-grade machines.
+    - ***Intel*** 's GPU follow an average price around 1000 Euros, Intel is another notable brand that is currently second to Nvidia that offers a balance between cost and capability to users that's commonly found in gaming laptops.
+    - ***AMD*** GPUs, on the other hand, has an average price of approximately slightly below 800 Euros. AMD's products are usually bought buy users that are conscious with their budget and at the same time has a desire of a decent graphics performance.
+    - Lastly, ***ARM*** GPUs have the lowest average price in the market with slightly over 600 Euros, which is considered cheap in the market. ARM is usually used in lightweight or specialized devices that is efficiency-focused, instead of performance and quality.	 
 """)
